@@ -24,8 +24,18 @@ class HuffmanTree {
     void buildMinHeap() {
         priority_queue<Node*, vector<Node*>, Compare> pq;
         for (int i = 0; i < codeMap.size(); i++) {
-            Node* newNode = new Node(codeMap[i].first, codeMap[i].second);
+            Node* newNode = new Node(codeMap[i]->first, codeMap[i].second);
             pq.push(newNode);
+        }
+
+        while (pq.size() > 1) {
+            Node* temp1 = pq.top();
+            pq.pop();
+            Node* temp2 = pq.top();
+            pq.pop();
+            Node* parent = new Node(temp1->char + temp2->char, temp1->freq + temp2->freq);
+            parent->left = temp1;
+            parent->right = temp2;
         }
     }
 };
