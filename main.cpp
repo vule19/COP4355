@@ -2,8 +2,7 @@
 #include <string>
 #include <map>
 
-#include "node.cpp"
-#include "HuffmanTree.cpp"
+#include "HuffmanTree.h"
 
 using namespace std;
 
@@ -21,5 +20,9 @@ int main() {
     cin >> inputText;
 
     map<char, int> codeMap = buildCodeMap(inputText);
+
+    HuffmanTree huffman(codeMap);
+    cout <<"hi";
+
     return 0;
 }
