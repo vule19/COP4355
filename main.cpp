@@ -22,7 +22,7 @@ int main() {
     map<char, int> codeMap = buildCodeMap(inputText);
 
     HuffmanTree huffman(codeMap);
-    cout <<"hi";
+    huffman.buildMinHeap();
 
     return 0;
 }

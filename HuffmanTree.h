@@ -1,4 +1,5 @@
 #include "node.h"
+#include <iostream>
 
 #include <map>
 #include <string>
@@ -29,14 +30,15 @@ struct HuffmanTree {
             pq.push(newNode);
         }
 
-        // while (pq.size() > 1) {
-        //     Node* temp1 = pq.top();
-        //     pq.pop();
-        //     Node* temp2 = pq.top();
-        //     pq.pop();
-        //     Node* parent = new Node('0', temp1->freq + temp2->freq);
-        //     parent->left = temp1;
-        //     parent->right = temp2;
-        // }
+         while (pq.size() > 1) {
+             Node* temp1 = pq.top();
+             pq.pop();
+             Node* temp2 = pq.top();
+             pq.pop();
+             Node* parent = new Node('0', temp1->freq + temp2->freq);
+             parent->left = temp1;
+             parent->right = temp2;
+             pq.push(parent);
+         }
     }
 };
