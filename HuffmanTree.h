@@ -12,6 +12,7 @@ using namespace std;
 struct HuffmanTree {
     Node* root;
     map<char, int> codeMap;
+    map<char, string> encodeMap;
 
     HuffmanTree(map<char, int> codeMap_) {
         codeMap = codeMap_;
@@ -49,7 +50,7 @@ struct HuffmanTree {
 
     void encode(Node* node) {
         if (node->left == nullptr && node->right == nullptr) {
-            cout << node->character << ": " << node->code << endl;
+            encodeMap[node->character] = node->code;
             return;
         }
 

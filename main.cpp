@@ -21,8 +21,14 @@ int main() {
 
     map<char, int> codeMap = buildCodeMap(inputText);
 
+    cout << "Here is your code: " << endl;
+
     HuffmanTree huffman(codeMap);
     huffman.buildMinHeap();
+
+    for (auto& pair : codeMap) {
+        cout << huffman.encodeMap[pair.first];
+    }
 
     return 0;
 }
