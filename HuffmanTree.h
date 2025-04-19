@@ -40,5 +40,27 @@ struct HuffmanTree {
              parent->right = temp2;
              pq.push(parent);
          }
+
+         root = pq.top();
+         pq.pop();
+
+         encode(root);
+    }
+
+    void encode(Node* node) {
+        if (node->left == nullptr && node->right == nullptr) {
+            cout << node->character << ": " << node->code << endl;
+            return;
+        }
+
+        if (node->left != nullptr) {
+            node->left->code = node->code + "0";
+            encode(node->left);
+        }
+
+        if (node->right != nullptr) {
+            node->right->code = node->code + "1";
+            encode(node->right);
+        }
     }
 };
