@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <fstream>
 
 #include "HuffmanTree.h"
 
@@ -15,20 +16,46 @@ map<char, int> buildCodeMap(string inputText) {
 }
 
 int main() {
-    cout << "Enter the text that you want to encode:" << endl;
+
+    ifstream inputFile("input.txt");
+    
+    if (!inputFile.is_open()) {
+        cout << "Error: Could not open input.txt" << endl;
+        return 1;
+    }
+    
+    // Reads the contents of the file
     string inputText;
-    cin >> inputText;
+    string line;
+    while (getline(inputFile, line)) {
+        inputText += line;
+        if (!inputFile.eof()) {
+            inputText += '\n';
+        }
+    }
+    
+    inputFile.close();
 
     map<char, int> codeMap = buildCodeMap(inputText);
 
-    cout << "Here is your code: " << endl;
-
+    // Builds Huffman Tree from user input
     HuffmanTree huffman(codeMap);
     huffman.buildMinHeap();
 
-    for (auto& pair : codeMap) {
-        cout << huffman.encodeMap[pair.first];
+    // Prints out prefix codes
+    cout << "Here are your codes: " << endl;
+    for (auto& pair : huffman.encodeMap) {
+        cout << "'" << pair.first << "': " << pair.second << endl;
     }
 
+    // Determines and prints encoded text
+    string encodedText = "";
+    for (char c : inputText) {
+        encodedText += huffman.encodeMap[c];
+    }
+    
+    cout << "Encoded text: " << encodedText << endl;
+
     return 0;
-}
+} 
+
