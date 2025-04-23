@@ -21,12 +21,16 @@ make
 
 ### Compiling the Project without make:
 
+```bash
 c++ main.cpp -o huffman
+```
 
 ### Running the program
 
 After compiling, run the program using:
+```bash
 ./huffman
+```
 
 input.tsx: This should be a plain text file containing the string you wish to compress.
 
