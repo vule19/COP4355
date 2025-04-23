@@ -19,6 +19,10 @@ To compile the project, simply run:
 make
 ```
 
+### Compiling the Project without make:
+
+c++ main.cpp -o huffman
+
 ### Running the program
 
 After compiling, run the program using:
