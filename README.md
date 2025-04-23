@@ -22,7 +22,7 @@ make
 ### Running the program
 
 After compiling, run the program using:
-./huffman input.tsx
+./huffman
 
 input.tsx: This should be a plain text file containing the string you wish to compress.
 
