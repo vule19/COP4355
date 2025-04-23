@@ -28,5 +28,8 @@ input.tsx: This should be a plain text file containing the string you wish to co
 
 Output will be printed in the terminal.
 
-## Authors: Anna Albertelli, Anh Le
+## Authors: 
+Anna Albertelli
+
+Anh Le
 
