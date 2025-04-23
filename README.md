@@ -17,8 +17,9 @@ To compile the project, simply run:
 
 ```bash
 make
+```
 
-## Running the program
+### Running the program
 
 After compiling, run the program using:
 ./huffman input.tsx
